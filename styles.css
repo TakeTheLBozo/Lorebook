@@ -1,0 +1,295 @@
+@font-face {
+    font-family: pixel;
+    src: url('Assets/alagard.ttf');
+}
+
+body {
+    margin: 0;
+    font-family: pixel;
+    overflow: hidden;
+    align-content: center;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    transition: opacity 0.6s ease;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+/*GIF BACKGROUNDS*/
+#landingpage {
+    background-image: url('Assets/LandingPage.gif');
+    width: 100%;
+    height: 799px;
+    
+}
+
+#homescreen {
+    background-image: url('Assets/HomeScreen.gif');
+    position: relative;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-60px); 
+}
+
+@keyframes floatTitle {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+.pixel-title,
+.pixel-subtitle {
+    margin: 0;
+    line-height: 1;
+    animation: floatTitle 4s ease-in-out infinite;
+}
+
+.pixel-title {
+    font-size: 100px;
+    color: white;
+    text-shadow: 2px 2px #040025;
+    text-align: center;
+    margin: 0;
+    line-height: 1;
+}
+
+.pixel-subtitle {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px #040025;
+    text-align: center;
+    margin: 5px 0 20px 0;   
+    line-height: 1;
+}
+
+
+.pixel-btn {
+    font-family: pixel;
+    padding: 15px 30px;
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.05s;
+    display: block;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.05s ease;
+}
+
+.pixel-btn:active {
+    transform: scale(0.92);
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 4px rgba(255,255,255,0.2);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255,255,255,0.7);
+    }
+    100% {
+        box-shadow: 0 0 4px rgba(255,255,255,0.2);
+    }
+}
+
+/*FLOATING WINDOWS*/
+.floating-window {
+    position: absolute;
+    width: 300px;
+    background: #ffffff;
+    border:transparent;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    top: 100px;
+    left: 100px;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+.desktop-icon {
+    width: 64px;
+    height: 64px;
+    cursor: pointer;
+    transition: transform 0.1s;
+    position:absolute;
+}
+
+.desktop-icon:hover {
+    transform: scale(1.1);
+}
+
+#patchNotes {
+    top: 100px;
+    left: 485px;
+}
+
+#aboutApp {
+    top: 170px;
+    left: 485px;
+}
+
+#timeLine {
+    top: 233px;
+    left: 488px;
+}
+
+#musicApp {
+    top: 290px;
+    left: 485px;
+}
+
+#book {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    bottom: -140px;
+    right: 30px;
+    z-index: 5;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+#book:hover {
+    transform: scale(1.1);
+}
+
+.book-overlay {
+    display: none;
+}
+
+.book-overlay.visible{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.book-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.open-Book-Img {
+    width: 800px;
+    height: auto;
+}
+
+#toc-Title {
+    font-family: pixel;
+    font-size: 50px;
+    color: rgb(17, 16, 14);
+    text-align: center;
+    margin: 0 auto 15px auto;
+    width: 100%;
+}
+
+#toc {
+    position: absolute;
+    top: 22%;
+    left: 15%;
+    width: 34%;  
+    height: 60%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.chapter-btn {
+    font-family: pixel;
+    padding: 6px 0;
+    background-color: transparent;
+    color: rgb(17, 16, 14);
+    border: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.05s;
+    display: block;
+    width: 90%;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.chapter-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+.close-Book-btn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    font-family: pixel;
+    transition: transform 0.05s;
+    cursor: pointer;
+}
+
+.close-Book-btn:hover {
+    transform: scale(1.1);
+    background: darkred;
+}
+
+.toc-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-family: pixel;
+    cursor: pointer;
+    transition: transform 0.05s;
+    display: block;
+    padding: 6px 12px;
+    border-radius: 6px;
+}

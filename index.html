@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+<body>
+
+<!--LANDING PAGE-->
+<div id="landingpage" class="screen active">
+    <div class="center">
+        <h1 class="pixel-title">LOREBOOK</h1>
+        <h2 class="pixel-subtitle">Beta</h2>
+        <button id="startbtn" class="pixel-btn">START</button>
+    </div>
+</div>
+
+<!--HOME SCREEN-->
+<div id="homescreen" class="screen">
+    <img src="Assets/BookIcon.png" id="book" class="clickable">
+    <img src="Assets/PatchNotesApp.png" id="patchNotes" class="desktop-icon" data-window="patch">
+    <img src="Assets/AboutApp.png" id="aboutApp" class="desktop-icon"  data-window="about">
+    <img src="Assets/TimelineApp.png" id="timeLine" class="desktop-icon" data-window="timeline">
+    <img src="Assets/MusicApp.png" id="musicApp" class="desktop-icon" data-window="music">
+
+<!--BOOK UI-->
+    <div id="bookUI" class="book-overlay">
+    <div class="book-container">
+        <img src="Assets/open book.png" alt="Open book" class="open-Book-Img">
+        <button id="exitBook" class="close-Book-btn">X</button>
+        <button id="backtoTOC" class="toc-btn small">Table of Contents</button>
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <button class="chapter-btn" data-chapter="about">About</button>
+            <button class="chapter-btn" data-chapter="beginning">The Beginning</button>
+            <button class="chapter-btn" data-chapter="bh">Blackened Heart</button>
+            <button class="chapter-btn" data-chapter="bic">Bathed in Color</button>
+            <button class="chapter-btn" data-chapter="tpg">The Perfect Gem</button>
+            <button class="chapter-btn" data-chapter="change">"Change"</button>
+            <button class="chapter-btn" data-chapter="tlg">The Looking Glass</button>
+        </div>
+
+        <div id="ChapterContent"></div>
+    </div>
+</div>
+</div>
+
+<!--FLOATING WINDOW TEMPLATE-->
+<div id="windowTemplate" class="floating-window hidden">
+    <div class="window-header">
+        <span class="window-title"></span>
+        <button class="closeWindow">X</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
