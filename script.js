@@ -41,47 +41,99 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 600);
 });
 
-    /*BOOK LOGIC*/
-book.addEventListener("click", () => {
-    playClick();
-    bookUI.classList.add("visible"); // show overlay
-    showTOC();
-});
+    // ALL BOOK LOGIC HERE
 
-exitBook.addEventListener("click", () => {
-    playClick();
-    bookUI.classList.remove("visible"); // hide overlay
-});
+    const sectionsContainer = document.getElementById("sectionsContainer");
+    const rightPageTitle = document.querySelector(".right-page .page-title");
 
-backtoTOC.addEventListener("click", () => {
-    playClick();
-    showTOC();
-});
+    /* BOOK OPEN */
+    book.addEventListener("click", () => {
+        playClick();
+        bookUI.classList.add("visible");
+        resetBook();
+    });
 
-function showTOC() {
-    toc.style.display = "block";
-    chapterContent.innerHTML = "";
-}
+    /* BOOK CLOSE */
+    exitBook.addEventListener("click", () => {
+        playClick();
+        bookUI.classList.remove("visible");
+    });
 
-    /*CHAPTER CONTENT DATA*/
-    const chapters = {
-        about: "<h2>About</h2><p>What is the Lorebook?</p>",
-        beginning: "<h2>The Beginning</h2><p>Where did it all began?</p>",
-        bh: "<h2>Blackened Heart</h2><p>The first spark of magic was never that of color</p>",
-        bic: "<h2>Bathed in Color</h2><p>When darkness sought the light</p>",
-        tpg: "<h2>The Perfect Gem</h2><p>There's no such thing as perfect, those who believe they are only deepens those cracks</p>",
-        change: "<h2>Change</h2><p>It's a play of annihilation, when power surges exponentially higher, would you need anything when you've become a god?</p>",
-        tlg: "<h2>The Looking Glass</h2><p>A mirror sees, a mirror reflects, but one thing a mirror shouldn,t do, is to deflect.</p>"
-    };
+    /* BACK TO TOC */
+    backtoTOC.addEventListener("click", () => {
+        playClick();
+        resetBook();
+    });
+
+    function resetBook() {
+        sectionsContainer.innerHTML = "";
+        rightPageTitle.textContent = "Select a Chapter";
+        backtoTOC.style.display = "none";
+    }
+
+    const bookData = {
+    about: {
+        title: "I. ABOUT",
+        sections: [
+            {title: "What is the Lorebook?",
+                content: `
+                <p>The Lorebook serves as an extension of the archive inside the creator's mind.</p>
+                <p>It also serves as a record for the evolution of the main character throughout the years</p>
+                `
+            },
+        ]
+    },
+
+    beginning: {
+        title: "II. THE BEGINNING",
+        sections: [
+            {title: "Where did it all began?",
+                content: `
+                <p>It all started with a boy who longed for...</p>
+                `
+            },
+        ]
+    },
 
     document.querySelectorAll(".chapter-btn").forEach(button => {
         button.addEventListener("click", () => {
+
             playClick();
             const chapter = button.dataset.chapter;
-            toc.style.display = "none";
-            chapterContent.innerHTML = chapters[chapter] || "<p>Coming soon...</p>";
+
+            if (!chapters[chapter]) return;
+
+            sectionsContainer.innerHTML = "";
+            rightPageTitle.textContent = button.textContent;
+
+            chapters[chapter].forEach(section => {
+
+                const sectionBtn = document.createElement("button");
+                sectionBtn.classList.add("section-btn");
+                sectionBtn.textContent = "• " + section;
+
+                sectionBtn.addEventListener("click", () => {
+                    playClick();
+                    showSectionContent(section);
+                });
+
+                sectionsContainer.appendChild(sectionBtn);
+            });
+
+            backtoTOC.style.display = "block";
         });
-    });
+    // END OF BOOK LOGIC
+
+    function showSectionContent(section) {
+        sectionsContainer.innerHTML = `
+            <h3>${section}</h3>
+            <p style="font-size:14px;">
+                Content for "${section}" goes here.
+            </p>
+        `;
+    }
+
+});
 
     /*FLOATING WINDOWS (COMPUTER APPS)*/
     document.querySelectorAll(".desktop-icon").forEach(icon => {

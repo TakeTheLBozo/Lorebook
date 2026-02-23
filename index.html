@@ -24,26 +24,42 @@
     <img src="Assets/MusicApp.png" id="musicApp" class="desktop-icon" data-window="music">
 
 <!--BOOK UI-->
-    <div id="bookUI" class="book-overlay">
+<div id="bookUI" class="book-overlay">
     <div class="book-container">
-        <img src="Assets/open book.png" alt="Open book" class="open-Book-Img">
-        <button id="exitBook" class="close-Book-btn">X</button>
-        <button id="backtoTOC" class="toc-btn small">Table of Contents</button>
 
-        <div id="toc">
-            <h2 id="toc-Title">Table of Contents</h2>
-            <button class="chapter-btn" data-chapter="about">About</button>
-            <button class="chapter-btn" data-chapter="beginning">The Beginning</button>
-            <button class="chapter-btn" data-chapter="bh">Blackened Heart</button>
-            <button class="chapter-btn" data-chapter="bic">Bathed in Color</button>
-            <button class="chapter-btn" data-chapter="tpg">The Perfect Gem</button>
-            <button class="chapter-btn" data-chapter="change">"Change"</button>
-            <button class="chapter-btn" data-chapter="tlg">The Looking Glass</button>
-        </div>
+         <!-- SIDE BUTTONS -->
+    <div class="book-container">
+    <div id="exitBook" class="side-btn close-btn">X</div>
 
-        <div id="ChapterContent"></div>
+         <!-- TOC -->
+    <div id="backtoTOC" class="toc-container">
+        <img src="Assets/bookmark.png" alt="Table of Contents" class="toc-image">
+        <span class="toc-text">Table of Contents</span>
     </div>
+
+    <img src="Assets/open book.png" alt="Open book" class="open-Book-Img">
 </div>
+
+         <!-- LEFT PAGE (CHAPTERS) -->
+    <div id="leftPage" class="book-page left-page">
+      <h2 class="page-title">Table of Contents</h2>
+
+      <button class="chapter-btn" data-chapter="about">I. ABOUT</button>
+      <button class="chapter-btn" data-chapter="beginning">II. THE BEGINNING</button>
+      <button class="chapter-btn" data-chapter="bh">III. BLACKENED HEART</button>
+      <button class="chapter-btn" data-chapter="bic">IV. BATHED IN COLOR</button>
+      <button class="chapter-btn" data-chapter="tpg">V. THE PERFECT GEM</button>
+      <button class="chapter-btn" data-chapter="change">VI. "CHANGE"</button>
+      <button class="chapter-btn" data-chapter="tlg">VII. THE LOOKING GLASS</button>
+    </div>
+
+    <!-- RIGHT PAGE (SECTIONS) -->
+    <div id="rightPage" class="book-page right-page">
+      <h2 class="page-title">Select a Chapter</h2>
+      <div id="sectionsContainer"></div>
+    </div>
+
+  </div>
 </div>
 
 <!--FLOATING WINDOW TEMPLATE-->

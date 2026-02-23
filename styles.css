@@ -210,64 +210,119 @@ body {
 }
 
 .open-Book-Img {
-    width: 1100px;
-    max-width: 95vw;
+    width: 900px;
+    max-width: 90vw;
     height: auto;
 }
 
-#toc-Title {
-    font-family: pixel;
-    font-size: 40px;
-    color: rgb(17, 16, 14);
-    text-align: center;
-    margin: 0 auto 15px auto;
-    width: 100%;
-}
-
-#toc {
+.book-page {
     position: absolute;
-    top: 20%;
-    left: 13%;
-    width: 38%;
+    top: 18%;
+    width: 34%;
     height: 62%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 14px;
+    gap: 10px;
+    text-align: left;
+    font-family: pixel;
+    overflow-y: auto;
+}
+
+.left-page {
+    left: 13%;
+}
+
+.right-page {
+    right: 13%;
+}
+
+.page-title {
+    font-family: pixel;
+    font-size: 28px;
+    color: rgb(17, 16, 14);
     text-align: center;
-    overflow: hidden;
+    margin-bottom: 8px;
+    width: 100%;
 }
 
 .chapter-btn {
     font-family: pixel;
-    padding: 10px 0;
+    padding: 6px 4px;
     background-color: transparent;
     color: #111;
-    border: 2px solid transparent;
-    font-size: 20px;
+    border: none;
+    font-size: 18px;
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: all 0.1s ease;
     display: block;
-    width: 90%;
-    text-align: center;
+    width: 95%;
+    text-align: left;
     border-radius: 6px;
 }
 
 .chapter-btn:hover {
     background-color: rgba(0, 0, 0, 0.08);
-    transform: scale(1.07);
+    transform: translateX(5px);
 }
 
 .chapter-btn:active {
     transform: scale(0.95);
 }
 
-.close-Book-btn {
+.section-btn {
+    font-family: pixel;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 95%;
+    text-align: left;
+    padding: 4px;
+    transition: 0.1s ease;
+}
+
+.section-btn:hover {
+    transform: translateX(5px);
+    color: #6a3b3b;
+}
+
+.section-btn:active {
+    transform: scale(0.95);
+}
+
+.book-side-controls {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: 10px;
+    right: -70px;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 25;
+}
+
+.side-btn {
+    font-family: pixel;
+    width: 50px;
+    height: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    transition: 0.1s ease;
+}
+
+.side-btn:hover {
+    background: #5a4444;
+    transform: scale(1.1);
+}
+
+.close-btn {
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    left: -35px;
+    top: 30px;
+    right: 20px;
     background: red;
     color: white;
     border: none;
@@ -278,25 +333,37 @@ body {
     cursor: pointer;
 }
 
-.close-Book-btn:hover {
+.close-btn:hover {
     transform: scale(1.1);
     background: darkred;
 }
 
-.toc-btn {
-   position: absolute;
-    bottom: 20px;
-    right: 30px;
-    font-family: pixel;
-    font-size: 16px;
-    padding: 8px 14px;
-    background: #3c2f2f;
-    color: white;
-    border: 2px solid #222;
-    cursor: pointer;
+.toc-container {
+    position: absolute;
+    right: 105px;          
+    top: -320px;              
     display: none;
+    cursor: pointer;
+    z-index: 30;
 }
 
-.toc-btn:hover {
-    background: #5a4444;
+.toc-image {
+    width: 250px;
+    height: 250px;
+    transition: transform 0.15s ease;
+}
+
+.toc-container span {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: pixel;
+    font-size: 20px;
+    color: white;
+    pointer-events: none; 
+}
+
+.toc-container:hover .toc-image {
+    transform: translateX(5px);
 }
